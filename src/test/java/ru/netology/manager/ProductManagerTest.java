@@ -14,10 +14,10 @@ class ProductManagerTest {
     ProductManager manager = new ProductManager(repository);
 
     private Product product1 = new Product(1, "Product 1", 1000);
-    private Product book1 = new Book(2, "Dracula", 2000, "King");
-    private Book book2 = new Book(3, "Malefisenta", 3000, "Kto-to");
-    private Product smartphone1 = new Smartphone(4, "Iphone", 4000, "Tim Kuk");
-    private Smartphone smartphone2 = new Smartphone(5, "Samsung", 5000, "Li Ben Chkhol");
+    private Product book1 = new Book(2, "Book 1", 2000, "author 2");
+    private Book book2 = new Book(3, "Book 2", 3000, "author 3");
+    private Product smartphone1 = new Smartphone(4, "Phone 1", 4000, "manufacture 1");
+    private Smartphone smartphone2 = new Smartphone(5, "Phone 2", 5000, "manufacture 2");
 
     @BeforeEach
     public void setUp(){
@@ -40,7 +40,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldSearchByBookName() {
-        String text = "Dracula";
+        String text = "Book 1";
 
         Product[] expected = {book1};
         Product[] actual = ProductManager.searchBy(text);
@@ -50,7 +50,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldSearchByBookAuthor() {
-        String text = "Kto-to";
+        String text = "author 3";
 
         Product[] expected = {book2};
         Product[] actual = ProductManager.searchBy(text);
@@ -60,7 +60,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldSearchBySmartphoneName() {
-        String text = "Iphone";
+        String text = "Phone 1";
 
         Product[] expected = {smartphone1};
         Product[] actual = ProductManager.searchBy(text);
@@ -70,7 +70,7 @@ class ProductManagerTest {
 
     @Test
     public void shouldSearchBySmartphoneManufacturer() {
-        String text = "Li Ben Chkhol";
+        String text = "manufacture 2";
 
         Product[] expected = {smartphone2};
         Product[] actual = ProductManager.searchBy(text);
